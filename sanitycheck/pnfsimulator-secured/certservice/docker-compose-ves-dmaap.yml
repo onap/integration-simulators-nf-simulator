@@ -1,0 +1,33 @@
+version: "2.1"
+
+networks:
+  public:
+    external: true
+  onap:
+    external: true
+
+services:
+  ves:
+    container_name: ves
+    image: nexus3.onap.org:10003/onap/org.onap.dcaegen2.collectors.ves.vescollector:latest
+    ports:
+      - "8082:8080"
+      - "8444:8443"
+    networks:
+      - onap
+      - public
+    volumes:
+      - ./resources/certservice-client/client-volume-for-ves/keystore.jks:/opt/app/VESCollector/etc/keystore
+      - ./resources/certservice-client/client-volume-for-ves/keystore.pass:/opt/app/VESCollector/etc/passwordfile
+      - ./resources/certservice-client/client-volume-for-ves/truststore.jks:/opt/app/VESCollector/etc/truststore
+      - ./resources/certservice-client/client-volume-for-ves/truststore.pass:/opt/app/VESCollector/etc/trustpasswordfile
+    depends_on:
+      - onap-dmaap
+
+  onap-dmaap:
+    container_name: dmaap
+    image: dmaap-simulator
+    ports:
+      - "3904:3904"
+    networks:
+      - onap

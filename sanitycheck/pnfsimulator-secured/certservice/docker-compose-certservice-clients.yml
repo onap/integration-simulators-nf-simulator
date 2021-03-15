@@ -1,0 +1,39 @@
+version: "2.1"
+
+networks:
+  onap:
+    external: true
+
+services:
+  oom-cert-client-ves:
+    image: nexus3.onap.org:10001/onap/org.onap.oom.platform.cert-service.oom-certservice-client:2.1.1
+    container_name: oomcert-client-for-ves
+    env_file: ./resources/certservice-client/client-configuration-for-ves.env
+    networks:
+      - onap
+    volumes:
+      - ./resources/certservice-client/client-volume-for-ves:/var/certs:rw
+      - ./resources/certs/truststore.jks:/etc/onap/oom/certservice/certs/truststore.jks
+      - ./resources/certs/certServiceClient-keystore.jks:/etc/onap/oom/certservice/certs/certServiceClient-keystore.jks
+
+  oom-cert-client-pnfsim:
+    image: nexus3.onap.org:10001/onap/org.onap.oom.platform.cert-service.oom-certservice-client:2.1.1
+    container_name: oomcert-client
+    env_file: ./resources/certservice-client/client-configuration-for-pnfsim.env
+    networks:
+      - onap
+    volumes:
+      - ./resources/certservice-client/client-volume-for-pnfsim:/var/certs:rw
+      - ./resources/certs/truststore.jks:/etc/onap/oom/certservice/certs/truststore.jks
+      - ./resources/certs/certServiceClient-keystore.jks:/etc/onap/oom/certservice/certs/certServiceClient-keystore.jks
+
+  oom-cert-client-httpserver:
+    image: nexus3.onap.org:10001/onap/org.onap.oom.platform.cert-service.oom-certservice-client:2.1.1
+    container_name: oomcert-client-for-httpserver
+    env_file: ./resources/certservice-client/client-configuration-for-httpserver.env
+    networks:
+      - onap
+    volumes:
+      - ./resources/certservice-client/client-volume-for-httpserver:/var/certs:rw
+      - ./resources/certs/truststore.jks:/etc/onap/oom/certservice/certs/truststore.jks
+      - ./resources/certs/certServiceClient-keystore.jks:/etc/onap/oom/certservice/certs/certServiceClient-keystore.jks

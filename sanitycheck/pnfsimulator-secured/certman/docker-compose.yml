@@ -1,0 +1,69 @@
+version: '3'
+
+networks:
+  tls-init-network:
+
+volumes:
+  certs-volume:
+
+services:
+  certs-init:
+    image: nexus3.onap.org:10001/onap/org.onap.dcaegen2.deployments.tls-init-container:2.1.0
+    extra_hosts:
+      #set worker IP with access to AAF
+      aaf-locate.onap: <WORKER_IP> #for example 10.183.35.177
+      aaf-cm.onap: <WORKER_IP> #for example 10.183.35.177
+      aaf-service.onap: <WORKER_IP> #for example 10.183.35.177
+    environment:
+      - aaf_locate_url=https://aaf-locate.onap:31111
+      - aaf_url_cm=https://aaf-cm.onap:31114
+      - aaf_url=https://aaf-service.onap:31110
+    networks:
+      - tls-init-network
+    volumes:
+      - certs-volume:/opt/app/osaaf
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: zXcVbN123!
+      MONGO_INITDB_DATABASE: pnf_simulator
+    networks:
+      - tls-init-network
+    volumes:
+      - ../../../pnfsimulator/db:/docker-entrypoint-initdb.d
+    ports:
+      - "27017:27017"
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    networks:
+      - tls-init-network
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: zXcVbN123!
+
+  pnf-simulator:
+    image: onap/org.onap.integration.nfsimulator.vesclient
+    ports:
+      - "5000:5000"
+    command: bash -c "
+      while [[ $$(ls -1 /app/store | wc -l) != '10' ]]; do echo 'Waiting for certs...'; sleep 3; done
+      && java -Dspring.config.location=file:/app/application.properties -cp /app/libs/*:/app/vesclient.jar org.onap.integration.simulators.nfsimulator.vesclient.Main
+      "
+    volumes:
+      - ../../../pnfsimulator/logs:/var/log
+      - ../../../pnfsimulator/templates:/app/templates
+      - ../../../pnfsimulator/src/main/resources/application.properties:/app/application.properties
+      - certs-volume:/app/store
+    networks:
+      - tls-init-network
+    restart: on-failure
+    depends_on:
+      - certs-init
+      - mongo
+      - mongo-express

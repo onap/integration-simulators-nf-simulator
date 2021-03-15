@@ -1,0 +1,32 @@
+{
+  "simulatorParams": {
+    "repeatCount": 4,
+    "repeatInterval": 1
+  },
+  "templateName": "notification.json",
+  "patch": {
+    "event": {
+      "commonEventHeader": {
+        "domain": "notification",
+        "eventName": "vFirewallBroadcastPackets",
+        "eventId": "#RandomString(10)",
+        "priority": "Normal",
+        "reportingEntityName": "myVNF",
+        "sequence": 1,
+        "sourceName": "ClosedLoopVNF",
+        "startEpochMicrosec": 1531616794,
+        "lastEpochMicrosec": 1531719042,
+        "vesEventListenerVersion": "7.0.1",
+        "version": "4.0.1"
+      }
+    }
+  },
+  "variables": {
+    "dN": "NRNB=5, NRCEL=1234",
+    "dn": "Test_dn",
+    "attributeList": {
+      "threshXHighQ": "50",
+      "threshXHighP": "52"
+    }
+  }
+}
