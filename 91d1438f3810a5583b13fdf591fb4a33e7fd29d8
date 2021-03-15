@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b4c136f3_fafc26a3",
+        "filename": "simulator-cli/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5098
+      },
+      "writtenOn": "2021-03-15T12:48:29Z",
+      "side": 1,
+      "message": "please replace all \"NF Simulator\" and \"Netconf Simulator\" with \"Netconf server\"",
+      "range": {
+        "startLine": 1,
+        "startChar": 3,
+        "endLine": 1,
+        "endChar": 23
+      },
+      "revId": "91d1438f3810a5583b13fdf591fb4a33e7fd29d8",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
