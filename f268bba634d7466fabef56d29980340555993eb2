@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f85eea9f_724e760d",
+        "filename": "sanitycheck/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5098
+      },
+      "writtenOn": "2021-03-15T13:04:36Z",
+      "side": 1,
+      "message": "ves client",
+      "range": {
+        "startLine": 1,
+        "startChar": 19,
+        "endLine": 1,
+        "endChar": 31
+      },
+      "revId": "f268bba634d7466fabef56d29980340555993eb2",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3fb600c2_cce93806",
+        "filename": "sanitycheck/pnfsimulator-secured/certman/Makefile",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 5098
+      },
+      "writtenOn": "2021-03-15T13:04:36Z",
+      "side": 1,
+      "message": "I think it should be start-ves-client",
+      "range": {
+        "startLine": 4,
+        "startChar": 6,
+        "endLine": 4,
+        "endChar": 12
+      },
+      "revId": "f268bba634d7466fabef56d29980340555993eb2",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24d29746_50a105db",
+        "filename": "sanitycheck/pnfsimulator-secured/certman/Makefile",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5098
+      },
+      "writtenOn": "2021-03-15T13:04:36Z",
+      "side": 1,
+      "message": "I think it should be clean-ves-client",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 12
+      },
+      "revId": "f268bba634d7466fabef56d29980340555993eb2",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a59e27a1_1066f263",
+        "filename": "sanitycheck/pnfsimulator-secured/certman/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5098
+      },
+      "writtenOn": "2021-03-15T13:04:36Z",
+      "side": 1,
+      "message": "According to my comments in Makefile it should be \"VES client\" instead of \"PNF Simulator\"",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 17
+      },
+      "revId": "f268bba634d7466fabef56d29980340555993eb2",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0fbe79f_1fe6ad8f",
+        "filename": "sanitycheck/pnfsimulator-secured/certman/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 5098
+      },
+      "writtenOn": "2021-03-15T13:04:36Z",
+      "side": 1,
+      "message": "According to my comments in Makefile it should be \"VES client\" instead of \"PNF Simulator\"",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 3
+      },
+      "revId": "f268bba634d7466fabef56d29980340555993eb2",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c101a36_ae6509d7",
+        "filename": "sanitycheck/pnfsimulator-secured/certman/docker-compose.yml",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 5098
+      },
+      "writtenOn": "2021-03-15T13:04:36Z",
+      "side": 1,
+      "message": "I think it should be called ves-client",
+      "range": {
+        "startLine": 50,
+        "startChar": 2,
+        "endLine": 50,
+        "endChar": 15
+      },
+      "revId": "f268bba634d7466fabef56d29980340555993eb2",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5fa4fcc2_6ff6e25c",
+        "filename": "sanitycheck/pnfsimulator-secured/certservice/docker-compose-pnfsim.yml",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 5098
+      },
+      "writtenOn": "2021-03-15T13:04:36Z",
+      "side": 1,
+      "message": "ves-client",
+      "range": {
+        "startLine": 63,
+        "startChar": 2,
+        "endLine": 63,
+        "endChar": 16
+      },
+      "revId": "f268bba634d7466fabef56d29980340555993eb2",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
