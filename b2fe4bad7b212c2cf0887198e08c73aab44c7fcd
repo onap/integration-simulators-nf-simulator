@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "60223f29_293100d3",
+        "filename": "pom.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 390,
+      "author": {
+        "id": 5098
+      },
+      "writtenOn": "2021-03-16T12:20:57Z",
+      "side": 1,
+      "message": "I think we need empty pom here, without properties, dependencies etc.",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 390,
+        "endChar": 29
+      },
+      "revId": "b2fe4bad7b212c2cf0887198e08c73aab44c7fcd",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
