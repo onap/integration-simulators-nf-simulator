@@ -22,7 +22,7 @@ import unittest
 import os
 from mock import patch
 
-from cli.netconf_server import create_argument_parser, NetconfSimulatorClient
+from cli.netconf_server import create_argument_parser, NetconfServerClient
 
 
 class TestArgumentParser(unittest.TestCase):
@@ -87,76 +87,76 @@ class TestNetconfSimulatorClient(unittest.TestCase):
     def tearDownClass(cls):
         os.remove("example")
 
-    @patch('cli.netconf_simulator.requests')
-    @patch('cli.netconf_simulator.NetconfSimulatorClient._configure_logger')
+    @patch('cli.netconf_server.requests')
+    @patch('cli.netconf_server.NetconfServerClient._configure_logger')
     def test_should_properly_get_config(self, logger, requests):
-        client = NetconfSimulatorClient('localhost')
+        client = NetconfServerClient('localhost')
         client.logger = logging.getLogger()
 
         client.get_config()
 
         requests.get.assert_called_with('http://localhost:8080/netconf/get')
 
-    @patch('cli.netconf_simulator.requests')
-    @patch('cli.netconf_simulator.NetconfSimulatorClient._configure_logger')
+    @patch('cli.netconf_server.requests')
+    @patch('cli.netconf_server.NetconfServerClient._configure_logger')
     def test_should_properly_get_config_for_given_module(self, logger, requests):
-        client = NetconfSimulatorClient('localhost')
+        client = NetconfServerClient('localhost')
         client.logger = logging.getLogger()
 
         client.get_config("module", "container")
 
         requests.get.assert_called_with('http://localhost:8080/netconf/get/module/container')
 
-    @patch('cli.netconf_simulator.NetconfSimulatorClient._configure_logger')
+    @patch('cli.netconf_server.NetconfServerClient._configure_logger')
     def test_should_raise_exception_when_module_is_present_and_container_is_absent(self, logger):
-        client = NetconfSimulatorClient('localhost')
+        client = NetconfServerClient('localhost')
         client.logger = logging.getLogger()
 
         with self.assertRaises(AttributeError) as context: # pylint: disable=W0612
             client.get_config(module_name="test")
 
-    @patch('cli.netconf_simulator.NetconfSimulatorClient._configure_logger')
+    @patch('cli.netconf_server.NetconfServerClient._configure_logger')
     def test_should_raise_exception_when_module_is_absent_and_container_is_present(self, logger):
-        client = NetconfSimulatorClient('localhost')
+        client = NetconfServerClient('localhost')
         client.logger = logging.getLogger()
 
         with self.assertRaises(AttributeError) as context: # pylint: disable=W0612
             client.get_config(container="test")
 
-    @patch('cli.netconf_simulator.requests')
-    @patch('cli.netconf_simulator.NetconfSimulatorClient._configure_logger')
+    @patch('cli.netconf_server.requests')
+    @patch('cli.netconf_server.NetconfServerClient._configure_logger')
     def test_should_properly_load_yang_model(self, logger, requests):
-        client = NetconfSimulatorClient('localhost')
+        client = NetconfServerClient('localhost')
         client.logger = logging.getLogger()
 
         client.load_yang_model('sample_module_name', 'example', 'example')
 
         requests.post.assert_called()
 
-    @patch('cli.netconf_simulator.requests')
-    @patch('cli.netconf_simulator.NetconfSimulatorClient._configure_logger')
+    @patch('cli.netconf_server.requests')
+    @patch('cli.netconf_server.NetconfServerClient._configure_logger')
     def test_should_properly_delete_yang_model(self, logger, requests):
-        client = NetconfSimulatorClient('localhost')
+        client = NetconfServerClient('localhost')
         client.logger = logging.getLogger()
 
         client.delete_yang_model('sample_model_name')
 
         requests.delete.assert_called()
 
-    @patch('cli.netconf_simulator.requests')
-    @patch('cli.netconf_simulator.NetconfSimulatorClient._configure_logger')
+    @patch('cli.netconf_server.requests')
+    @patch('cli.netconf_server.NetconfServerClient._configure_logger')
     def test_should_properly_edit_config(self, logger, requests):
-        client = NetconfSimulatorClient('localhost')
+        client = NetconfServerClient('localhost')
         client.logger = logging.getLogger()
 
         client.edit_config('example')
 
         requests.post.assert_called()
 
-    @patch('cli.netconf_simulator.requests')
-    @patch('cli.netconf_simulator.NetconfSimulatorClient._configure_logger')
+    @patch('cli.netconf_server.requests')
+    @patch('cli.netconf_server.NetconfServerClient._configure_logger')
     def test_should_properly_run_less_like_mode(self, logger, requests):
-        client = NetconfSimulatorClient('localhost')
+        client = NetconfServerClient('localhost')
         client.logger = logging.getLogger()
 
         client.less_like_func(100)

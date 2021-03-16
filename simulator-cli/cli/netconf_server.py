@@ -41,7 +41,7 @@ DEFAULT_EXTERNAL_SIM_PORT = 8080
 DEFAULT_INTERNAL_SIM_PORT = 9000
 
 
-class NetconfSimulatorClient(object):
+class NetconfServerClient(object):
     def __init__(self, ip: str, protocol: str = 'http', port: int = DEFAULT_EXTERNAL_SIM_PORT, verbose: bool = False) -> None:
         self._ip = ip
         self._protocol = protocol
@@ -182,39 +182,39 @@ def create_argument_parser():
 
 
 def run_tailf(args):
-    client = NetconfSimulatorClient(args.address, verbose=args.verbose)
+    client = NetconfServerClient(args.address, verbose=args.verbose)
     client.tailf_like_func()
 
 
 def run_get_cm_history(args):
-    client = NetconfSimulatorClient(args.address, verbose=args.verbose, port=DEFAULT_INTERNAL_SIM_PORT)
+    client = NetconfServerClient(args.address, verbose=args.verbose, port=DEFAULT_INTERNAL_SIM_PORT)
     client.get_cm_history()
 
 
 def run_less(args):
-    client = NetconfSimulatorClient(args.address, verbose=args.verbose, port=DEFAULT_INTERNAL_SIM_PORT)
+    client = NetconfServerClient(args.address, verbose=args.verbose, port=DEFAULT_INTERNAL_SIM_PORT)
     client.less_like_func(args.limit)
 
 
 def run_load_model(args):
-    client = NetconfSimulatorClient(args.address, verbose=args.verbose,
-                                    port=DEFAULT_INTERNAL_SIM_PORT)
+    client = NetconfServerClient(args.address, verbose=args.verbose,
+                                 port=DEFAULT_INTERNAL_SIM_PORT)
     client.load_yang_model(args.module_name, args.yang_model, args.config)
 
 
 def run_delete_model(args):
-    client = NetconfSimulatorClient(args.address, verbose=args.verbose,
-                                    port=DEFAULT_INTERNAL_SIM_PORT)
+    client = NetconfServerClient(args.address, verbose=args.verbose,
+                                 port=DEFAULT_INTERNAL_SIM_PORT)
     client.delete_yang_model(args.model_name)
 
 
 def run_get_config(args):
-    client = NetconfSimulatorClient(args.address, verbose=args.verbose, port=DEFAULT_INTERNAL_SIM_PORT)
+    client = NetconfServerClient(args.address, verbose=args.verbose, port=DEFAULT_INTERNAL_SIM_PORT)
     client.get_config(args.module_name, args.container)
 
 
 def run_edit_config(args):
-    client = NetconfSimulatorClient(args.address, verbose=args.verbose, port=DEFAULT_INTERNAL_SIM_PORT)
+    client = NetconfServerClient(args.address, verbose=args.verbose, port=DEFAULT_INTERNAL_SIM_PORT)
     client.edit_config(args.config)
 
 
