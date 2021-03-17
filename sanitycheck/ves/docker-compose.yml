@@ -1,0 +1,20 @@
+version: '3'
+services:
+  ves:
+    container_name: ves
+    image: nexus3.onap.org:10003/onap/org.onap.dcaegen2.collectors.ves.vescollector:latest
+    ports:
+      - "8080:8080"
+      - "8443:8443"
+    networks:
+      - vesnetwork
+  onap-dmaap:
+    container_name: dmaap
+    image: dmaap-simulator
+    ports:
+      - "3904:3904"
+    networks:
+      - vesnetwork
+networks:
+  vesnetwork:
+    driver: bridge

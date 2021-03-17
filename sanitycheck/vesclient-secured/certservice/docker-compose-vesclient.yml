@@ -1,0 +1,86 @@
+version: "2.1"
+
+networks:
+  ves-client:
+    driver: bridge
+    name: ves-client
+  public:
+    external: true
+  onap:
+    external: true
+
+services:
+  mongo:
+    image: mongo
+    restart: always
+    networks:
+      - ves-client
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: zXcVbN123!
+      MONGO_INITDB_DATABASE: pnf_simulator
+    volumes:
+      - ../../../../ves-client/db:/docker-entrypoint-initdb.d
+    ports:
+      - "27017:27017"
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    networks:
+      - ves-client
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINPASSWORD: zXcVbN123!
+
+  http-server:
+    image: nexus3.onap.org:10003/onap/org.onap.integration.nfsimulator.pmhttpsserver
+    ports:
+      - "8080:8080"
+      - "32000:32000"
+      - "32080:80"
+      - "32100:32100"
+      - "32443:443"
+    networks:
+      - ves-client
+      - public
+    volumes:
+      - ~/httpservervolumes/:/usr/local/apache2/htdocs
+      - ../../../httpserver/logs:/var/log/apache2
+      - ./resources/certservice-client/client-volume-for-httpserver/:/etc/apache2/certs/
+    command: bash -c "
+      echo 'Http Server start';
+      while [[ $$(ls -1 /etc/apache2/certs/ | wc -l) != '3' ]]; do echo 'Waiting for certs...'; sleep 3; done;
+      chmod 777 /usr/local/apache2/htdocs;
+      cp /usr/local/apache2/conf/upload.php /usr/local/apache2/htdocs/upload.php;
+      touch /usr/local/apache2/htdocs/index.html;
+      /usr/sbin/apache2ctl -D FOREGROUND;
+      "
+    restart: on-failure
+
+  ves-client:
+    image: onap/org.onap.integration.nfsimulator.vesclient
+    ports:
+      - "5000:5000"
+    networks:
+      - ves-client
+      - public
+    command: bash -c "
+      while [[ $$(ls -1 /app/store | wc -l) != '4' ]]; do echo 'Waiting for certs...'; sleep 3; done
+      && cp /app/store/truststore.p12 /app/store/trust.jks
+      && cp /app/store/keystore.p12 /app/store/cert.p12
+      && cp /app/store/keystore.pass /app/store/p12.pass
+      && cp /app/store/truststore.pass /app/store/trust.pass
+      && java -Dspring.config.location=file:/app/application.properties  -cp /app/libs/*:/app/vesclient.jar org.onap.integration.simulators.nfsimulator.vesclient.Main
+      "
+    volumes:
+      - ../../../../ves-client/logs:/var/log
+      - ../../../../ves-client/templates:/app/templates
+      - ../../../../ves-client/src/main/resources/application.properties:/app/application.properties
+      - ./resources/certservice-client/client-volume-for-vesclient/:/app/store/
+    restart: on-failure
+    depends_on:
+      - mongo
+      - mongo-express
