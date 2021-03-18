@@ -60,7 +60,7 @@ step)
 
 Configure VES client to use proper VES URL by executing this command from ``nf-simulator/sanitycheck`` directory:
 
-  TIP: edit vesAddressConfigure.json and set "vesServerUrl": "https://172.17.0.1:8443/eventListener/v7"
+  TIP: edit vesAddressConfigure.json and set "vesServerUrl": "https://ves:8443/eventListener/v7"
 
 ```
 make reconfigure-ves-url
