@@ -1,0 +1,310 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "09f65cac_1a201203",
+        "filename": "helm/pm-https-server/Chart.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 3433
+      },
+      "writtenOn": "2021-04-13T12:59:17Z",
+      "side": 1,
+      "message": "pmhttpsserver",
+      "revId": "5044fe4c08bb29acc91bf0e12c175e346d441243",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e6884cba_8c6453e8",
+        "filename": "helm/pm-https-server/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 3433
+      },
+      "writtenOn": "2021-04-13T12:59:17Z",
+      "side": 1,
+      "message": "PM HTTPS Server",
+      "revId": "5044fe4c08bb29acc91bf0e12c175e346d441243",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a6a4ed70_a1fb6645",
+        "filename": "helm/pm-https-server/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 3433
+      },
+      "writtenOn": "2021-04-13T12:59:17Z",
+      "side": 1,
+      "message": "Start from capital letter",
+      "revId": "5044fe4c08bb29acc91bf0e12c175e346d441243",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a165cace_85af9bc2",
+        "filename": "helm/pm-https-server/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 3433
+      },
+      "writtenOn": "2021-04-13T12:59:17Z",
+      "side": 1,
+      "message": "capital letter",
+      "revId": "5044fe4c08bb29acc91bf0e12c175e346d441243",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb9ef19d_c8822943",
+        "filename": "helm/pm-https-server/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 3433
+      },
+      "writtenOn": "2021-04-13T12:59:17Z",
+      "side": 1,
+      "message": "pm-https-server",
+      "revId": "5044fe4c08bb29acc91bf0e12c175e346d441243",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe740c6c_0583745c",
+        "filename": "helm/pm-https-server/templates/_helpers.tpl",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 3433
+      },
+      "writtenOn": "2021-04-13T12:59:17Z",
+      "side": 1,
+      "message": "pmhttpsserver.name",
+      "revId": "5044fe4c08bb29acc91bf0e12c175e346d441243",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "051bee5b_02137427",
+        "filename": "helm/pm-https-server/templates/_helpers.tpl",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 3433
+      },
+      "writtenOn": "2021-04-13T12:59:17Z",
+      "side": 1,
+      "message": "pmhttpsserver.fullname",
+      "revId": "5044fe4c08bb29acc91bf0e12c175e346d441243",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1e65055_4de43afc",
+        "filename": "helm/pm-https-server/templates/_helpers.tpl",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 3433
+      },
+      "writtenOn": "2021-04-13T12:59:17Z",
+      "side": 1,
+      "message": "pmhttpsserver.chart",
+      "revId": "5044fe4c08bb29acc91bf0e12c175e346d441243",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e86b50a_8e4be576",
+        "filename": "helm/pm-https-server/templates/_helpers.tpl",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 3433
+      },
+      "writtenOn": "2021-04-13T12:59:17Z",
+      "side": 1,
+      "message": "the same here",
+      "revId": "5044fe4c08bb29acc91bf0e12c175e346d441243",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "def3e14e_80ac4cb7",
+        "filename": "helm/pm-https-server/templates/_helpers.tpl",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 3433
+      },
+      "writtenOn": "2021-04-13T12:59:17Z",
+      "side": 1,
+      "message": "the same here",
+      "revId": "5044fe4c08bb29acc91bf0e12c175e346d441243",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9187c3f9_61f7062a",
+        "filename": "helm/pm-https-server/templates/_helpers.tpl",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 3433
+      },
+      "writtenOn": "2021-04-13T12:59:17Z",
+      "side": 1,
+      "message": "the same here",
+      "revId": "5044fe4c08bb29acc91bf0e12c175e346d441243",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a73496d9_1fd2f4f9",
+        "filename": "helm/pm-https-server/templates/_helpers.tpl",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 3433
+      },
+      "writtenOn": "2021-04-13T12:59:17Z",
+      "side": 1,
+      "message": "the same here",
+      "revId": "5044fe4c08bb29acc91bf0e12c175e346d441243",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "635bda0b_462fd852",
+        "filename": "helm/pm-https-server/templates/_helpers.tpl",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 3433
+      },
+      "writtenOn": "2021-04-13T12:59:17Z",
+      "side": 1,
+      "message": "the same here",
+      "revId": "5044fe4c08bb29acc91bf0e12c175e346d441243",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9572cf09_d03628ce",
+        "filename": "helm/pm-https-server/templates/_helpers.tpl",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 3433
+      },
+      "writtenOn": "2021-04-13T12:59:17Z",
+      "side": 1,
+      "message": "the same here",
+      "revId": "5044fe4c08bb29acc91bf0e12c175e346d441243",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "46edc8d2_8ee77be1",
+        "filename": "helm/pm-https-server/templates/_helpers.tpl",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 3433
+      },
+      "writtenOn": "2021-04-13T12:59:17Z",
+      "side": 1,
+      "message": "the same here",
+      "revId": "5044fe4c08bb29acc91bf0e12c175e346d441243",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81049db6_f4e92941",
+        "filename": "helm/pm-https-server/templates/deployment.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 3433
+      },
+      "writtenOn": "2021-04-13T12:59:17Z",
+      "side": 1,
+      "message": "fix myhttpserver and in all occurrences in the file",
+      "revId": "5044fe4c08bb29acc91bf0e12c175e346d441243",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "19ef43d0_d04de475",
+        "filename": "helm/pm-https-server/templates/service.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 3433
+      },
+      "writtenOn": "2021-04-13T12:59:17Z",
+      "side": 1,
+      "message": "the same problem",
+      "revId": "5044fe4c08bb29acc91bf0e12c175e346d441243",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e54b43c3_16e9f7b6",
+        "filename": "helm/pm-https-server/values.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 3433
+      },
+      "writtenOn": "2021-04-13T12:59:17Z",
+      "side": 1,
+      "message": "pls remove",
+      "revId": "5044fe4c08bb29acc91bf0e12c175e346d441243",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
