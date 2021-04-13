@@ -1,0 +1,10 @@
+[Tue Apr 13 11:18:18.968647 2021] [mpm_prefork:notice] [pid 14] AH00163: Apache/2.4.38 (Debian) OpenSSL/1.1.1d configured -- resuming normal operations
+[Tue Apr 13 11:18:18.968864 2021] [core:notice] [pid 14] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+[Tue Apr 13 11:45:55.009941 2021] [mpm_prefork:notice] [pid 14] AH00163: Apache/2.4.38 (Debian) OpenSSL/1.1.1d configured -- resuming normal operations
+[Tue Apr 13 11:45:55.010642 2021] [core:notice] [pid 14] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+[Tue Apr 13 12:09:34.798726 2021] [mpm_prefork:notice] [pid 14] AH00163: Apache/2.4.38 (Debian) OpenSSL/1.1.1d configured -- resuming normal operations
+[Tue Apr 13 12:09:34.800097 2021] [core:notice] [pid 14] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+[Tue Apr 13 12:22:47.086391 2021] [mpm_prefork:notice] [pid 14] AH00163: Apache/2.4.38 (Debian) OpenSSL/1.1.1d configured -- resuming normal operations
+[Tue Apr 13 12:22:47.086503 2021] [core:notice] [pid 14] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'
+[Tue Apr 13 12:27:40.573233 2021] [mpm_prefork:notice] [pid 14] AH00163: Apache/2.4.38 (Debian) OpenSSL/1.1.1d configured -- resuming normal operations
+[Tue Apr 13 12:27:40.573458 2021] [core:notice] [pid 14] AH00094: Command line: '/usr/sbin/apache2 -D FOREGROUND'

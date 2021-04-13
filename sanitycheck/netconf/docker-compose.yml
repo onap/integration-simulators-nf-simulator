@@ -1,0 +1,75 @@
+version: '3.5'
+
+services:
+
+#
+# Kafka
+
+  zookeeper:
+    image: wurstmeister/zookeeper
+    ports:
+      - "2181:2181"
+    networks:
+      - nf-simulator-network
+
+  kafka1:
+    image: wurstmeister/kafka:1.1.0
+    ports:
+      - "9092:9092"
+    hostname: kafka1
+    networks:
+      - nf-simulator-network
+    environment:
+      KAFKA_ADVERTISED_PORT: 9092
+      KAFKA_ADVERTISED_HOST_NAME: kafka1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_CREATE_TOPICS: "config:1:1"
+      KAFKA_DELETE_RETENTION_MS: 604800000
+      KAFKA_LOG_CLEANER_DELETE_RETENTION_MS: 604800000
+    depends_on:
+      - zookeeper
+
+#
+# NETCONF - server
+
+  netconf-server:
+    container_name: netconf-server
+    image: onap/org.onap.integration.nfsimulator.netconfserver:latest
+    ports:
+      - "830:830"
+      - "6513:6513"
+      - "6555:6555"
+    volumes:
+      - ./test_models:/resources/models
+    networks:
+      - nf-simulator-network
+    depends_on:
+      - zookeeper
+      - kafka1
+
+#
+# AVCN - manager
+  avcn-manager:
+    image: onap/org.onap.integration.nfsimulator.avcnmanager:latest
+    ports:
+      - "9090:8080"
+    restart: on-failure
+    hostname: avcn-manager
+    networks:
+      - nf-simulator-network
+    environment:
+      REST_CLIENT_VES_ENDPOINT: https://sample1:sample1@ves:8443/eventListener/v7
+      KAFKA_BOOTSTRAP_SERVERS: kafka1:9092
+      KAFKA_SOURCE_TOPIC: config
+      KAFKA_APPLICATION_ID: avcn-manager
+      REST_CLIENT_PNFSIMULATOR_ENDPOINT: http://ves-client:5000/simulator/start
+    depends_on:
+      - zookeeper
+      - kafka1
+
+#
+# external network
+networks:
+  nf-simulator-network:
+    external:
+      name: nf-simulator-network

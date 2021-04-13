@@ -1,68 +1,105 @@
-### Run  test case ves client -> ves collector -> dmaap simulator
+# Sanity check for NF simulator
 
-### Prerequisites
-* Check your docker network ip:
-```
-ip a | grep docker0 | grep inet
-```
 
-If the IP address is different than 172.17.0.1/16:
-inet 172.17.0.1/16 brd 172.17.255.255 scope global docker0
+## Build and run NF simulator
 
-You have to change the IP address in file events/vesAddressConfiguration.json
-```
-{
-  "vesServerUrl": "http://<IP_Address>:8080/eventListener/v7"
-}
-```
+### 1. Build and start projects
+**In order to start NF simulator for testing local images are required**:
+- onap/org.onap.integration.nfsimulator.vesclient
+- onap/org.onap.integration.nfsimulator.netconfserver
+- onap/org.onap.integration.nfsimulator.avcnmanager
+- onap/org.onap.integration.nfsimulator.pmhttpsserver
 
-If you want use event with http server files:
-```
-make upload-file-http-server
-```
-### 1. Build Projects
 ```
 make start
 ```
+
 ### 2. Reconfigure ves url
+if this command returns `curl: (56) Recv failure: Connection reset by peer`, 
+it means VES-Client is not ready yet. Pleas try again after few seconds.
 ```
 make reconfigure-ves-url
 ```
-### 2.1 Check dmaap sim
 should return empty list 
 ```
 make check-dmaap
 ```
-### 3. Send one event
-### 3.1 Send events:
+
+
+## Run test case:
+### ves-client -> ves-collector -> dmaap-simulator
+
+### 1. Send one event
 ```
 make generate-event
 ```
-send event with files from Http Server
-```
-generate-event-http-server
-```
-### 3.2 Check dmaap sim
-should return list containing 1 event
+dmaap should return list containing 1 event
 ```
 make check-dmaap
 ```
-### 4. Send few events:
-### 4.1 Send events
+```
+make clean-dmaap
+```
+### 2. Send one http event
+```
+generate-event-http-server
+```
+dmaap should return list containing 1 event
+```
+make check-dmaap
+```
+```
+make clean-dmaap
+```
+### 3. Send few events:
 this will send 4 event with interval 1 second
 ```
 make generate-multiple-events
 ```
+dmaap should return list containing 4 event,
+if run least 4 seconds after  `generate-multiple-events`
+```
+make check-dmaap
+```
+```
+make clean-dmaap
+```
+### 3. Send few Http events:
 this event will send 2 events with files from Http Server with interval 5 second
 ```
 make generate-multiple-events-http-server
 ```
-### 4.2 Check dmaap sim
-should return list containing 5 event (1 from point 3.1 and 4 from point 4.1)
+dmaap should return list containing 2 event,
+if run least 10 seconds after `generate-multiple-events-http-server`
 ```
 make check-dmaap
 ```
-### 5. Clear environment
+```
+make clean-dmaap
+```
+
+
+## Run test case:
+### netconf-server -> kafka -> avcn-manager -> ves-client -> ves-collector -> dmaap-simulator
+
+### 1. Change configuration of network model
+This command will change configuration of test model. 
+In case new configuration is same as old, no event will be generated.
+In that case please change numeric values in file   
+`./netconf/test_models/test-model.data.xml`
+```
+make change-config
+```
+dmaap should return list containing 3 event
+```
+make check-dmaap
+```
+```
+make clean-dmaap
+```
+
+
+## Stop project and clear environment
 ```
 make stop
 ```
