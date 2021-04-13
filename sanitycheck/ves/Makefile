@@ -21,3 +21,4 @@ health-check:
 	@echo "\n\n##### VES is ready #####\n"
 	curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET GET http://localhost:8080/healthcheck
 	@echo "\n\n##### DONE #####"
+

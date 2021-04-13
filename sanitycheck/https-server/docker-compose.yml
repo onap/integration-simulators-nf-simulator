@@ -1,0 +1,33 @@
+version: "2.1"
+
+services:
+
+  http-server:
+    image: onap/org.onap.integration.nfsimulator.pmhttpsserver
+    ports:
+      - "32080:80"
+      - "38080:8080"
+      - "32443:443"
+      - "32000:32000"
+      - "32100:32100"
+    networks:
+      - nf-simulator-network
+    volumes:
+      - ./volumes/httpservervolumes/:/usr/local/apache2/htdocs
+      - ./volumes/logs:/var/log/apache2
+    command: bash -c "
+      echo 'Http Server start';
+      while [[ $$(ls -1 /etc/apache2/certs/ | wc -l) != '3' ]]; do echo 'Waiting for certs...'; sleep 3; done;
+      chmod 777 /usr/local/apache2/htdocs;
+      cp /usr/local/apache2/conf/upload.php /usr/local/apache2/htdocs/upload.php;
+      touch /usr/local/apache2/htdocs/index.html;
+      /usr/sbin/apache2ctl -D FOREGROUND;
+      "
+    restart: on-failure
+
+#
+# external network
+networks:
+  nf-simulator-network:
+    external:
+      name: nf-simulator-network
