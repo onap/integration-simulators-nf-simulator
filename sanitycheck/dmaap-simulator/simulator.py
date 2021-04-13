@@ -22,6 +22,12 @@ def get_events():
     return resp
 
 
+@app.route("/events", methods=['DELETE'])
+def clear_events():
+    events.clear()
+    return {}, 200
+
+
 @app.route("/events/<path:topic>", methods=['GET'])
 def get_events_from_topic(topic):
     resp = Response(json.dumps(get_events_from_map(topic)))
