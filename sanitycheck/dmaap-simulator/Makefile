@@ -21,3 +21,8 @@ get-data:
 	@echo "##### Get data fetched by dmaap-simulator #####\n"
 	curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET http://localhost:3904/events
 	@echo "\n\n##### DONE #####"
+
+clean-data:
+	@echo "##### Clean data saved by dmaap-simulator #####\n"
+	curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X DELETE http://localhost:3904/events
+	@echo "\n\n##### DONE #####"
