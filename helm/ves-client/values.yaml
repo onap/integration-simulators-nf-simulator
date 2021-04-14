@@ -1,0 +1,68 @@
+# Default values for ves-client.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: nexus3.onap.org:10001/onap/org.onap.integration.nfsimulator.vesclient
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "latest"
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: "ves-client"
+config:
+  mongoDbServer: ves-client-mongodb
+  useCertForAuth: true
+  containerPort: 5000
+
+podAnnotations: {}
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+service:
+  type: ClusterIP
+  port: 5000
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+mongo-express:
+  fullnameOverride: "ves-client-mongo-express"
+  mongodbServer: ves-client-mongodb
+  nameOverride: mongo-express
+  mongodbAdminPassword: zXcVbN123!
+
+mongodb:
+  fullnameOverride: "ves-client-mongodb"
+  auth:
+    rootPassword: zXcVbN123!
+    database: pnf_simulator
+    username: root
