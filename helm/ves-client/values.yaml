@@ -1,0 +1,49 @@
+# Default values for ves-client.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: nexus3.onap.org:10001/onap/org.onap.integration.nfsimulator.vesclient
+  pullPolicy: IfNotPresent
+  tag: "latest"
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: "ves-client"
+config:
+  mongoDbServer: ves-client-mongodb
+  useCertForAuth: true
+  containerPort: 5000
+
+podAnnotations: {}
+
+podSecurityContext: {}
+
+securityContext: {}
+
+service:
+  type: NodePort
+  port: 5000
+
+resources: {}
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+mongo-express:
+  fullnameOverride: "ves-client-mongo-express"
+  mongodbServer: ves-client-mongodb
+  nameOverride: mongo-express
+  mongodbAdminPassword: zXcVbN123!
+
+mongodb:
+  fullnameOverride: "ves-client-mongodb"
+  auth:
+    rootPassword: zXcVbN123!
+    database: pnf_simulator
+    username: root
