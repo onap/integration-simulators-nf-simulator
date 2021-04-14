@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "71efab8e_37b09f6c",
+        "filename": "helm/ves-client/requirements.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5098
+      },
+      "writtenOn": "2021-04-14T11:50:41Z",
+      "side": 1,
+      "message": "shouldn\u0027t be changed ?",
+      "range": {
+        "startLine": 1,
+        "startChar": 2,
+        "endLine": 1,
+        "endChar": 38
+      },
+      "revId": "c5aabe6d4ffdb3e8b0babaf492be367aabb78580",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0ec5405_ca915c81",
+        "filename": "helm/ves-client/values.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 5098
+      },
+      "writtenOn": "2021-04-14T11:50:41Z",
+      "side": 1,
+      "message": "shouldn\u0027t port be set to 10003 ?",
+      "range": {
+        "startLine": 8,
+        "startChar": 30,
+        "endLine": 8,
+        "endChar": 35
+      },
+      "revId": "c5aabe6d4ffdb3e8b0babaf492be367aabb78580",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
