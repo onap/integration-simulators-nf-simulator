@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5fb2b20d_2cb9b25c",
+        "filename": "helm/pm-https-server/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 3433
+      },
+      "writtenOn": "2021-04-14T05:21:19Z",
+      "side": 1,
+      "message": "it should be:\nscp -i \u003cpath to key file .pem\u003e -r \u003cpath to\u003e/pm-https-server ubuntu@\u003cRKE_NODE_IP\u003e:\u003cremote path to\u003e/pm-https-server",
+      "revId": "c13ab164203d7015716ff2df6cad6717cba120de",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ab445230_f0d68848",
+        "filename": "helm/pm-https-server/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 3433
+      },
+      "writtenOn": "2021-04-14T05:21:19Z",
+      "side": 1,
+      "message": "missing information: log into the RKE",
+      "revId": "c13ab164203d7015716ff2df6cad6717cba120de",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c157d47_1d915bd7",
+        "filename": "helm/pm-https-server/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 3433
+      },
+      "writtenOn": "2021-04-14T05:21:19Z",
+      "side": 1,
+      "message": "no information that user should be in pm-https-server folder",
+      "revId": "c13ab164203d7015716ff2df6cad6717cba120de",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
