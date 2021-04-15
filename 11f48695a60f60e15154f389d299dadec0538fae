@@ -46,6 +46,30 @@
       "revId": "11f48695a60f60e15154f389d299dadec0538fae",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0b57105_8693a3d3",
+        "filename": "helm/ves-client/templates/deployment.yaml",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 5098
+      },
+      "writtenOn": "2021-04-15T06:47:13Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e262258a_7d71ac0e",
+      "range": {
+        "startLine": 36,
+        "startChar": 17,
+        "endLine": 36,
+        "endChar": 101
+      },
+      "revId": "11f48695a60f60e15154f389d299dadec0538fae",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
