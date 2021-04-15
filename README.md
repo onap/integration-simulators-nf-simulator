@@ -1,6 +1,13 @@
 # NF Simulator
 
-Goal of this project is to simulate `Network Function`. 
+An idea behind this simulator is to introduce application,
+which supports ORAN defined O1 interface (reporting of NF events to Service Management Orchestrators).
+Within the use-case, it is expected, that an NF configuration change, 
+happening due to multiple reasons (network mechanism triggered change - e.g. discovery of neighbours) 
+is reported to the network management system, using ONAP's VES REST events.
+The simulator is expected to cover planned NF behaviour - 
+receive the config change via a NetConf protocol and report that change 
+(also potentially other related changes) to the network management system using ONAP`s VES event.
 
 
 ## Simulator components
