@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bb667086_06904953",
+        "filename": "helm/netconf/requirements.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5098
+      },
+      "writtenOn": "2021-04-15T10:34:32Z",
+      "side": 1,
+      "message": "I think it should be removed or updated",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 38
+      },
+      "revId": "12f5a3cf7a3319ed90043d4fb8994c05b6c24124",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "568920a8_38b3efbf",
+        "filename": "helm/netconf/values.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 5098
+      },
+      "writtenOn": "2021-04-15T10:34:32Z",
+      "side": 1,
+      "message": "Shouldn\u0027t repository be:\nnexus-gsn32.onap.dyn.nesc.nokia.net:10001\naccording to:\nhttps://gerrit.onap.org/r/c/integration/simulators/nf-simulator/+/120530/5/helm/ves-client/values.yaml",
+      "range": {
+        "startLine": 8,
+        "startChar": 14,
+        "endLine": 8,
+        "endChar": 35
+      },
+      "revId": "12f5a3cf7a3319ed90043d4fb8994c05b6c24124",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
