@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f0d59f73_7bf43f4c",
+        "filename": "helm/ves-client/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 7439
+      },
+      "writtenOn": "2021-04-15T06:18:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c1cd517_f258f21c",
+      "revId": "f5c5483ea549a663bb362d18b5d96be86d7bfce8",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dd90701d_8b353472",
         "filename": "helm/ves-client/values.yaml",
         "patchSetId": 3
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "9040586b_e5062d60",
+        "filename": "helm/ves-client/values.yaml",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 7439
+      },
+      "writtenOn": "2021-04-15T06:18:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dd90701d_8b353472",
+      "revId": "f5c5483ea549a663bb362d18b5d96be86d7bfce8",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5f8a7a95_d8e51449",
         "filename": "helm/ves-client/values.yaml",
         "patchSetId": 3
@@ -50,6 +86,24 @@
       "revId": "f5c5483ea549a663bb362d18b5d96be86d7bfce8",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cfdbe97a_253fccc6",
+        "filename": "helm/ves-client/values.yaml",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 7439
+      },
+      "writtenOn": "2021-04-15T06:18:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f8a7a95_d8e51449",
+      "revId": "f5c5483ea549a663bb362d18b5d96be86d7bfce8",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
