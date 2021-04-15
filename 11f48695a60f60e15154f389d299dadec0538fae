@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "71dd3bef_7030a911",
+        "filename": "helm/ves-client/Chart.yaml",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 3433
+      },
+      "writtenOn": "2021-04-15T07:55:47Z",
+      "side": 1,
+      "message": "it should be 1.0.0",
+      "revId": "11f48695a60f60e15154f389d299dadec0538fae",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "6630ca61_1e794cbb",
         "filename": "helm/ves-client/templates/deployment.yaml",
         "patchSetId": 4
@@ -70,6 +87,23 @@
       "revId": "11f48695a60f60e15154f389d299dadec0538fae",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "000aaa11_31cd1387",
+        "filename": "helm/ves-client/values.yaml",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 3433
+      },
+      "writtenOn": "2021-04-15T07:55:47Z",
+      "side": 1,
+      "message": "do not use, use appVersion property in Chart.yaml",
+      "revId": "11f48695a60f60e15154f389d299dadec0538fae",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
     }
   ]
 }
