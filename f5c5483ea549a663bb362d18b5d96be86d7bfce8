@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c1cd517_f258f21c",
+        "filename": "helm/ves-client/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 3433
+      },
+      "writtenOn": "2021-04-15T06:02:05Z",
+      "side": 1,
+      "message": "Add information how to test ves client and what is the response.",
+      "revId": "f5c5483ea549a663bb362d18b5d96be86d7bfce8",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd90701d_8b353472",
+        "filename": "helm/ves-client/values.yaml",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 3433
+      },
+      "writtenOn": "2021-04-15T06:02:05Z",
+      "side": 1,
+      "message": "remove comment",
+      "revId": "f5c5483ea549a663bb362d18b5d96be86d7bfce8",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5f8a7a95_d8e51449",
+        "filename": "helm/ves-client/values.yaml",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 3433
+      },
+      "writtenOn": "2021-04-15T06:02:05Z",
+      "side": 1,
+      "message": "remove comments",
+      "revId": "f5c5483ea549a663bb362d18b5d96be86d7bfce8",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
