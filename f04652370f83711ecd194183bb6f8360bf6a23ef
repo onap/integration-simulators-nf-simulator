@@ -16,6 +16,24 @@
       "revId": "f04652370f83711ecd194183bb6f8360bf6a23ef",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b3b7233c_831df125",
+        "filename": "helm/netconf/values.yaml",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 6482
+      },
+      "writtenOn": "2021-04-16T13:21:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "92a7c1e5_846358da",
+      "revId": "f04652370f83711ecd194183bb6f8360bf6a23ef",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
