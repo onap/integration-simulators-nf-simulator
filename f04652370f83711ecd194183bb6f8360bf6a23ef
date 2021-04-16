@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "92a7c1e5_846358da",
+        "filename": "helm/netconf/values.yaml",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 7439
+      },
+      "writtenOn": "2021-04-16T09:00:28Z",
+      "side": 1,
+      "message": "this repository host is dynamic and won\u0027t work on all labs",
+      "revId": "f04652370f83711ecd194183bb6f8360bf6a23ef",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
