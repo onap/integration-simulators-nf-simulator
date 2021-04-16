@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5e2f8fb6_9bfb38af",
+        "filename": "helm/netconf/templates/deployment.yaml",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 3433
+      },
+      "writtenOn": "2021-04-16T07:58:50Z",
+      "side": 1,
+      "message": "move port values to values.yaml",
+      "revId": "3a4fc6f96b573bead277058275a54e39161a4610",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13fdbb94_2972a173",
+        "filename": "helm/netconf/values.yaml",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 3433
+      },
+      "writtenOn": "2021-04-16T07:58:50Z",
+      "side": 1,
+      "message": "do not use latest tag. Set to \"\"",
+      "revId": "3a4fc6f96b573bead277058275a54e39161a4610",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86011ade_4bca43c2",
+        "filename": "helm/netconf/values.yaml",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 3433
+      },
+      "writtenOn": "2021-04-16T07:58:50Z",
+      "side": 1,
+      "message": "remove commented parts",
+      "revId": "3a4fc6f96b573bead277058275a54e39161a4610",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
