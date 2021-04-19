@@ -1,0 +1,55 @@
+# Default values for ves-client.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: /onap/org.onap.integration.nfsimulator.netconfserver
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: ""
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: "netconf-server"
+
+
+podAnnotations: {}
+
+podSecurityContext: {}
+
+securityContext: {}
+
+service:
+  type: NodePort
+  port: 6555
+  nodePort: 30555
+
+resources: {}
+
+zookeeper:
+  fullnameOverride: "netconf-server-zookeeper"
+  auth:
+    enabled: false
+  allowAnonymousLogin: true
+  persistence:
+    enabled: false
+
+kafka:
+  fullnameOverride: "netconf-server-kafka"
+  zookeeper:
+    enabled: false
+  externalZookeeper:
+    servers: "netconf-server-zookeeper"
+  persistence:
+    enabled: false
+
+config:
+  kafka_hostname: "netconf-server-kafka"
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
