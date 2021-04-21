@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "17089e50_d3d883be",
+        "filename": "helm/avcn-manager/.helmignore",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 3433
+      },
+      "writtenOn": "2021-04-21T08:50:30Z",
+      "side": 1,
+      "message": "do we need this file?",
+      "revId": "be2735b2b2d609e80e2fae1a43b4d4144e592304",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f854271_d8bbcf79",
+        "filename": "helm/avcn-manager/Chart.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 3433
+      },
+      "writtenOn": "2021-04-21T08:50:30Z",
+      "side": 1,
+      "message": "is it a proper version?",
+      "revId": "be2735b2b2d609e80e2fae1a43b4d4144e592304",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "53e494a8_2fb8c2f4",
+        "filename": "helm/avcn-manager/values.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 3433
+      },
+      "writtenOn": "2021-04-21T08:50:30Z",
+      "side": 1,
+      "message": "pls remove it",
+      "revId": "be2735b2b2d609e80e2fae1a43b4d4144e592304",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": true
+    }
+  ]
+}
