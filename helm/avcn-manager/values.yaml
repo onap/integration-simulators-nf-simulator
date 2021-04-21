@@ -1,0 +1,65 @@
+# Default values for avcn-manager.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: onap/org.onap.integration.nfsimulator.avcnmanager
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: ""
+
+config:
+  vesEndpoint: http://ves:8080/eventListener/v7
+  kafkaBootstrapServer: avcn-manager-kafka:9092
+  kafkaSourceTopic: config
+  kafkaAplicationId: avcn-manager
+  pnfsimulatorEndpoint: http://ves-client:5000/simulator/start
+
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: "avcn-manager"
+
+podAnnotations: {}
+
+podSecurityContext: {}
+
+
+securityContext: {}
+
+
+service:
+  type: NodePort
+  port: 8080
+  nodePort: 31090
+
+
+resources: {}
+
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+
+zookeeper:
+  fullnameOverride: "avcn-manager-zookeeper"
+  auth:
+    enabled: false
+  allowAnonymousLogin: true
+  persistence:
+    enabled: false
+
+kafka:
+  fullnameOverride: "avcn-manager-kafka"
+  zookeeper:
+    enabled: false
+    connect: "avcn-manager-zookeeper:2181"
+  externalZookeeper:
+    servers: "avcn-manager-zookeeper"
+  persistence:
+    enabled: false
