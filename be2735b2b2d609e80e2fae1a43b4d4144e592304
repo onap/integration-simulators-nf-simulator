@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b284cdac_70e20d35",
+        "filename": "helm/avcn-manager/.helmignore",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 6482
+      },
+      "writtenOn": "2021-04-21T08:55:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17089e50_d3d883be",
+      "revId": "be2735b2b2d609e80e2fae1a43b4d4144e592304",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2f854271_d8bbcf79",
         "filename": "helm/avcn-manager/Chart.yaml",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "9583384b_fb5499f7",
+        "filename": "helm/avcn-manager/Chart.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 6482
+      },
+      "writtenOn": "2021-04-21T08:55:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f854271_d8bbcf79",
+      "revId": "be2735b2b2d609e80e2fae1a43b4d4144e592304",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "53e494a8_2fb8c2f4",
         "filename": "helm/avcn-manager/values.yaml",
         "patchSetId": 1
@@ -50,6 +86,24 @@
       "revId": "be2735b2b2d609e80e2fae1a43b4d4144e592304",
       "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "095dfa32_d0b2aef5",
+        "filename": "helm/avcn-manager/values.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 6482
+      },
+      "writtenOn": "2021-04-21T08:55:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53e494a8_2fb8c2f4",
+      "revId": "be2735b2b2d609e80e2fae1a43b4d4144e592304",
+      "serverId": "14b4e41f-c4e3-4fb9-9955-6a9b5656895a",
+      "unresolved": false
     }
   ]
 }
