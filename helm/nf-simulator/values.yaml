@@ -1,0 +1,32 @@
+zookeeper:
+  fullnameOverride: "nf-simulator-zookeeper"
+  auth:
+    enabled: false
+  allowAnonymousLogin: true
+  persistence:
+    enabled: false
+
+kafka:
+  fullnameOverride: "nf-simulator-kafka"
+  zookeeper:
+    enabled: false
+  externalZookeeper:
+    servers: "nf-simulator-zookeeper"
+  persistence:
+    enabled: false
+
+
+mongo-express:
+  fullnameOverride: "nf-simulator-mongo-express"
+  mongodbServer: nf-simulator-mongodb
+  nameOverride: mongo-express
+  mongodbAdminPassword: zXcVbN123!
+
+mongodb:
+  fullnameOverride: "nf-simulator-mongodb"
+  persistence:
+    enabled: false
+  auth:
+    rootPassword: zXcVbN123!
+    database: pnf_simulator
+    username: root

@@ -1,5 +1,5 @@
 apiVersion: v2
-name: avcn-manager
+name: nf-simulator
 description: A Helm chart for Kubernetes
 
 # A chart can be either an 'application' or a 'library' chart.
@@ -20,16 +20,30 @@ version: 0.1.0
 # This is the version number of the application being deployed. This version number should be
 # incremented each time you make changes to the application. Versions are not expected to
 # follow Semantic Versioning. They should reflect the version the application is using.
-# It is recommended to use it with quotes.
-appVersion: "1.0.1"
+appVersion: 0.1.0
 
 dependencies:
+  - name: ves-client
+    version: 0.1.0
+    repository: 'file://../ves-client'
+  - name: netconf-server
+    version: 0.1.0
+    repository: 'file://../netconf'
+  - name: avcn-manager
+    version: 0.1.0
+    repository: 'file://../avcn-manager'
   - name: zookeeper
     version: 6.7.0
     repository: https://charts.bitnami.com/bitnami
   - name: kafka
     version: 12.17.2
     repository: https://charts.bitnami.com/bitnami
+  - name: mongodb
+    version: 10.x
+    repository: https://charts.bitnami.com/bitnami
+  - name: mongo-express
+    version: 2.x
+    repository: https://cowboysysop.github.io/charts/
   - name: repositoryGenerator
     version: ~8.x-0
     repository: '@local'

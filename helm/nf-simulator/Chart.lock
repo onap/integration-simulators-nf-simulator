@@ -1,0 +1,24 @@
+dependencies:
+- name: ves-client
+  repository: file://../ves-client
+  version: 0.1.0
+- name: netconf-server
+  repository: file://../netconf
+  version: 0.1.0
+- name: avcn-manager
+  repository: file://../avcn-manager
+  version: 0.1.0
+- name: zookeeper
+  repository: https://charts.bitnami.com/bitnami
+  version: 6.7.0
+- name: kafka
+  repository: https://charts.bitnami.com/bitnami
+  version: 12.17.2
+- name: mongodb
+  repository: https://charts.bitnami.com/bitnami
+  version: 10.12.5
+- name: mongo-express
+  repository: https://cowboysysop.github.io/charts/
+  version: 2.3.1
+digest: sha256:96f0ebcf01b9e4224c2f7ac9e267ab629ea5225034fa38ac0d417157b56bee2c
+generated: "2021-04-21T14:06:47.705544063+02:00"
