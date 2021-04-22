@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: /onap/org.onap.integration.nfsimulator.netconfserver
+  repository: onap/org.onap.integration.nfsimulator.netconfserver
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
@@ -29,7 +29,7 @@ service:
 resources: {}
 
 zookeeper:
-  fullnameOverride: "netconf-server-zookeeper"
+  fullnameOverride: "nf-simulator-zookeeper"
   auth:
     enabled: false
   allowAnonymousLogin: true
@@ -37,16 +37,16 @@ zookeeper:
     enabled: false
 
 kafka:
-  fullnameOverride: "netconf-server-kafka"
+  fullnameOverride: "nf-simulator-kafka"
   zookeeper:
     enabled: false
   externalZookeeper:
-    servers: "netconf-server-zookeeper"
+    servers: "nf-simulator-zookeeper"
   persistence:
     enabled: false
 
 config:
-  kafka_hostname: "netconf-server-kafka"
+  kafka_hostname: "nf-simulator-kafka"
 
 nodeSelector: {}
 
