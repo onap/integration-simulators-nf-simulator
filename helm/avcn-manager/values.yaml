@@ -12,11 +12,10 @@ image:
 
 config:
   vesEndpoint: http://ves:8080/eventListener/v7
-  kafkaBootstrapServer: avcn-manager-kafka:9092
+  kafkaBootstrapServer: nf-simulator-kafka:9092
   kafkaSourceTopic: config
   kafkaAplicationId: avcn-manager
   pnfsimulatorEndpoint: http://ves-client:5000/simulator/start
-
 
 imagePullSecrets: []
 nameOverride: ""
@@ -47,7 +46,7 @@ affinity: {}
 
 
 zookeeper:
-  fullnameOverride: "avcn-manager-zookeeper"
+  fullnameOverride: "nf-simulator-zookeeper"
   auth:
     enabled: false
   allowAnonymousLogin: true
@@ -55,11 +54,10 @@ zookeeper:
     enabled: false
 
 kafka:
-  fullnameOverride: "avcn-manager-kafka"
+  fullnameOverride: "nf-simulator-kafka"
   zookeeper:
     enabled: false
-    connect: "avcn-manager-zookeeper:2181"
   externalZookeeper:
-    servers: "avcn-manager-zookeeper"
+    servers: "nf-simulator-zookeeper"
   persistence:
     enabled: false
