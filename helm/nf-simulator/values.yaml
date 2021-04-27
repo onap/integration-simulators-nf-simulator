@@ -30,3 +30,21 @@ mongodb:
     rootPassword: zXcVbN123!
     database: pnf_simulator
     username: root
+
+avcn-manager:
+  config:
+    vesEndpoint: http://ves:8080/eventListener/v7
+    kafkaBootstrapServer: nf-simulator-kafka:9092
+    kafkaSourceTopic: config
+    kafkaAplicationId: avcn-manager
+    pnfsimulatorEndpoint: http://ves-client:5000/simulator/start
+
+netconf-server:
+  config:
+    kafka_hostname: "nf-simulator-kafka"
+
+ves-client:
+  config:
+    mongoDbServer: nf-simulator-mongodb
+    useCertForAuth: true
+    containerPort: 5000
