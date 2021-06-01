@@ -6,7 +6,7 @@ networks:
 
 services:
   oom-cert-client-ves:
-    image: nexus3.onap.org:10001/onap/org.onap.oom.platform.cert-service.oom-certservice-client:2.1.1
+    image: nexus3.onap.org:10001/onap/org.onap.oom.platform.cert-service.oom-certservice-client:2.3.3
     container_name: oomcert-client-for-ves
     env_file: ./resources/certservice-client/client-configuration-for-ves.env
     networks:
@@ -17,7 +17,7 @@ services:
       - ./resources/certs/certServiceClient-keystore.jks:/etc/onap/oom/certservice/certs/certServiceClient-keystore.jks
 
   oom-cert-client-vesclient:
-    image: nexus3.onap.org:10001/onap/org.onap.oom.platform.cert-service.oom-certservice-client:2.1.1
+    image: nexus3.onap.org:10001/onap/org.onap.oom.platform.cert-service.oom-certservice-client:2.3.3
     container_name: oomcert-client
     env_file: ./resources/certservice-client/client-configuration-for-vesclient.env
     networks:
@@ -28,7 +28,7 @@ services:
       - ./resources/certs/certServiceClient-keystore.jks:/etc/onap/oom/certservice/certs/certServiceClient-keystore.jks
 
   oom-cert-client-httpserver:
-    image: nexus3.onap.org:10001/onap/org.onap.oom.platform.cert-service.oom-certservice-client:2.1.1
+    image: nexus3.onap.org:10001/onap/org.onap.oom.platform.cert-service.oom-certservice-client:2.3.3
     container_name: oomcert-client-for-httpserver
     env_file: ./resources/certservice-client/client-configuration-for-httpserver.env
     networks:

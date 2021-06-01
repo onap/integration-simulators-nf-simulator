@@ -27,7 +27,7 @@ services:
       - onap
 
   oom-cert-service:
-    image: nexus3.onap.org:10001/onap/org.onap.oom.platform.cert-service.oom-certservice-api:2.1.1
+    image: nexus3.onap.org:10001/onap/org.onap.oom.platform.cert-service.oom-certservice-api:2.3.3
     volumes:
       - ./resources/certservice/cmpServers.json:/etc/onap/oom/certservice/cmpServers.json
       - ./resources/certs/truststore.jks:/etc/onap/oom/certservice/certs/truststore.jks
