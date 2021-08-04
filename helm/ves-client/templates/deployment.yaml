@@ -5,7 +5,9 @@ metadata:
   labels:
     {{- include "ves-client.labels" . | nindent 4 }}
 spec:
+{{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
+{{- end }}
   selector:
     matchLabels:
       {{- include "ves-client.selectorLabels" . | nindent 6 }}
@@ -24,30 +26,85 @@ spec:
       {{- end }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      initContainers: {{ include "common.certInitializer.initContainer" . | nindent 6 }}
+        {{ if eq .Values.certMethod "aaf" }}
+        - name: {{ include "common.name" . }}-readiness
+          env:
+          - name: NAMESPACE
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+          image: {{ .Values.certInitializer.image }}
+          imagePullPolicy: {{ .Values.pullPolicy | default .Values.pullPolicy }}
+          volumeMounts:
+            - name: {{ .Values.aafVolumeName }}
+              mountPath: /opt/app/osaaf
+        {{- end }}
       containers:
-        - env:
+        - env: 
           - name: MONGO_HOSTNAME
-            value: {{ .Values.config.mongoDbServer | quote }}
+            value: {{ .Values.config.mongoDbName | quote }}
           - name: USE_CERTIFICATE_FOR_AUTHORIZATION
-            value: {{ .Values.config.useCertForAuth | quote }}
+            value: {{ .Values.config.useCerts | quote }}
+          - name: STRICT_HOSTNAME_VERIFICATION
+            value: {{ .Values.config.strictHost | quote }}
           name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: {{ include "repositoryGenerator.repository" . }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
-            - containerPort: {{ .Values.config.containerPort }}
+            - containerPort: {{ .Values.service.port }}
               protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /simulator/config
+              port: 5000
+            initialDelaySeconds: 10
+            periodSeconds: 30
+            timeoutSeconds: 1
+            successThreshold: 1 
+            failureThreshold: 3
+          readinessProbe:
+            httpGet:
+              path: /simulator/config
+              port: 5000
+            initialDelaySeconds: 60
+            periodSeconds: 15
+            timeoutSeconds: 1
+            successThreshold: 1
+            failureThreshold: 3
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
-            - name: store-map
-              mountPath: {{ .Values.storeMap.directory }}
+            - name: templates
+              mountPath: {{ .Values.templatesDir }}
+            {{ if eq .Values.certMethod "cmpv2" }}
+            - name: certstore
+              mountPath: {{ .Values.certsDir }}
+            {{- end }}
+            {{ if eq .Values.certMethod "aaf" }}
+            - name: {{ .Values.aafVolumeName }}
+              mountPath: /app/store
+            {{- end }}
+                                          
       volumes:
-        - name: store-map
+        - name: templates
           configMap:
             name: {{ .Chart.Name }}-configmap
             defaultMode: 0755
+        {{ if eq .Values.certMethod "cmpv2" }}
+        - name: certstore
+          secret:
+            secretName: {{.Values.certificates.secretName}}
+            defaultMode: 0400
+        {{- end }}
+        {{ if eq .Values.certMethod "aaf" }}
+        {{ include "common.certInitializer.volumes" . | nindent 8 }}
+        - name: {{ .Values.aafVolumeName }}
+          emptyDir: {}
+        {{- end }} 
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
@@ -60,4 +117,3 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-
