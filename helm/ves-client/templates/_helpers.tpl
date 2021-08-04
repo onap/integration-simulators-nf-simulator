@@ -1,8 +1,7 @@
-{{/* vim: set filetype=mustache: */}}
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "ves-client.name" -}}
+{{- define "ves-dev.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -11,7 +10,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "ves-client.fullname" -}}
+{{- define "ves-dev.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -27,16 +26,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "ves-client.chart" -}}
+{{- define "ves-dev.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "ves-client.labels" -}}
-helm.sh/chart: {{ include "ves-client.chart" . }}
-{{ include "ves-client.selectorLabels" . }}
+{{- define "ves-dev.labels" -}}
+helm.sh/chart: {{ include "ves-dev.chart" . }}
+{{ include "ves-dev.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -46,8 +45,18 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "ves-client.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "ves-client.name" . }}
+{{- define "ves-dev.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "ves-dev.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
+{{/*
+Create the name of the service account to use
+*/}}
+{{- define "ves-dev.serviceAccountName" -}}
+{{- if .Values.serviceAccount.create }}
+{{- default (include "ves-dev.fullname" .) .Values.serviceAccount.name }}
+{{- else }}
+{{- default "default" .Values.serviceAccount.name }}
+{{- end }}
+{{- end }}
