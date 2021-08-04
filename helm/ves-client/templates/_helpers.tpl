@@ -33,9 +33,9 @@ Create chart name and version as used by the chart label.
 {{/*
 Common labels
 */}}
-{{- define "ves-dev.labels" -}}
-helm.sh/chart: {{ include "ves-dev.chart" . }}
-{{ include "ves-dev.selectorLabels" . }}
+{{- define "ves-client.labels" -}}
+helm.sh/chart: {{ include "ves-client.chart" . }}
+{{ include "ves-client.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -45,17 +45,17 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "ves-dev.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "ves-dev.name" . }}
+{{- define "ves-client.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "ves-client.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "ves-dev.serviceAccountName" -}}
+{{- define "ves-client.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create }}
-{{- default (include "ves-dev.fullname" .) .Values.serviceAccount.name }}
+{{- default (include "ves-client.fullname" .) .Values.serviceAccount.name }}
 {{- else }}
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
