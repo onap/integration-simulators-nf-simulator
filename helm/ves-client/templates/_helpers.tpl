@@ -1,4 +1,3 @@
-{{/* vim: set filetype=mustache: */}}
 {{/*
 Expand the name of the chart.
 */}}
@@ -34,9 +33,9 @@ Create chart name and version as used by the chart label.
 {{/*
 Common labels
 */}}
-{{- define "ves-client.labels" -}}
-helm.sh/chart: {{ include "ves-client.chart" . }}
-{{ include "ves-client.selectorLabels" . }}
+{{- define "ves-dev.labels" -}}
+helm.sh/chart: {{ include "ves-dev.chart" . }}
+{{ include "ves-dev.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -46,8 +45,18 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "ves-client.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "ves-client.name" . }}
+{{- define "ves-dev.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "ves-dev.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
+{{/*
+Create the name of the service account to use
+*/}}
+{{- define "ves-dev.serviceAccountName" -}}
+{{- if .Values.serviceAccount.create }}
+{{- default (include "ves-dev.fullname" .) .Values.serviceAccount.name }}
+{{- else }}
+{{- default "default" .Values.serviceAccount.name }}
+{{- end }}
+{{- end }}
