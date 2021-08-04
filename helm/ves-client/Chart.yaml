@@ -26,9 +26,12 @@ dependencies:
     version: 10.x
     repository: https://charts.bitnami.com/bitnami
     condition: mongodb.enabled
-  - name: mongo-express
-    version: 2.x
-    repository: https://cowboysysop.github.io/charts/
-  - name: repositoryGenerator
+  - name: certInitializer
     version: ~8.x-0
+    repository: '@local'
+  - name: common
+    version: ~8.x-0
+    # local reference to common chart, as it is
+    # a part of this chart's package and will not
+    # be published independently to a repo (at this point)
     repository: '@local'
