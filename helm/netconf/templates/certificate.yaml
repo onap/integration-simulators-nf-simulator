@@ -1,0 +1,70 @@
+# Copyright © 2022 Nokia. All rights reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#       http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+{{- if .Values.config.certService.enabled }}
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  namespace: {{ include "netconf.namespace" . }}
+  name: '{{ .Values.clientCertificates.name }}-cert'
+spec:
+  commonName: {{ .Values.clientCertificates.commonName }}
+  secretName: '{{ .Values.clientCertificates.name }}-secret'
+  renewBefore: {{ .Values.clientCertificates.renewBefore }}
+  duration: {{ .Values.clientCertificates.duration }}
+  subject:
+    organizations:
+      - {{ .Values.clientCertificates.subject.organization }}
+    countries:
+      - {{ .Values.clientCertificates.subject.country }}
+    localities:
+      - {{ .Values.clientCertificates.subject.locality }}
+    provinces:
+      - {{ .Values.clientCertificates.subject.province }}
+    organizationalUnits:
+      - {{ .Values.clientCertificates.subject.organizationalUnit }}
+  issuerRef:
+    group: {{ .Values.clientCertificates.issuerRef.group }}
+    kind: {{ .Values.clientCertificates.issuerRef.kind }}
+    name: {{ .Values.clientCertificates.issuerRef.name }}
+  dnsNames: {{ include "netconf.clientCertificates.dnsNames" . | indent 4 }}
+
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  namespace: {{ include "netconf.namespace" . }}
+  name: '{{ .Values.serverCertificates.name }}-cert'
+spec:
+  commonName: {{ .Values.serverCertificates.commonName }}
+  secretName: '{{ .Values.serverCertificates.name }}-secret'
+  renewBefore: {{ .Values.serverCertificates.renewBefore }}
+  duration: {{ .Values.serverCertificates.duration }}
+  subject:
+    organizations:
+      - {{ .Values.serverCertificates.subject.organization }}
+    countries:
+      - {{ .Values.serverCertificates.subject.country }}
+    localities:
+      - {{ .Values.serverCertificates.subject.locality }}
+    provinces:
+      - {{ .Values.serverCertificates.subject.province }}
+    organizationalUnits:
+      - {{ .Values.serverCertificates.subject.organizationalUnit }}
+  issuerRef:
+    group: {{ .Values.serverCertificates.issuerRef.group }}
+    kind: {{ .Values.serverCertificates.issuerRef.kind }}
+    name: {{ .Values.serverCertificates.issuerRef.name }}
+  dnsNames: {{ include "netconf.serverCertificates.dnsNames" . | indent 4 }}
+{{- end }}
