@@ -1,0 +1,8 @@
+Verified+1: ONAP Jobbuilder <onap-jobbuilder@jenkins.onap.org>
+Code-Review+1: Grzegorz Lis <grzegorz.lis@nokia.com>
+Code-Review+2: Bogumil Zebek <bogumil.zebek@nokia.com>
+Submitted-by: Bogumil Zebek <bogumil.zebek@nokia.com>
+Submitted-at: Mon, 24 Jan 2022 10:48:13 +0000
+Reviewed-on: https://gerrit.onap.org/r/c/integration/simulators/nf-simulator/+/126718
+Project: integration/simulators/nf-simulator
+Branch: refs/heads/master
