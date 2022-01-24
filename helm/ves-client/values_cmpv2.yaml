@@ -14,11 +14,16 @@ mongodb:
 
 certInitializer:
   nameOverride: vesclient-cert-initializer-cmpv2
-            
+
 
 certificates:
   name: ves-client-cert-cmpv2
   secretName: ves-client-secret-cmpv2
+  commonName: dcae-ves-collector
+  dnsNames:
+    - dcae-ves-collector
+    - ves-collector
+    - ves
   keystores:
     jks:
       create: true

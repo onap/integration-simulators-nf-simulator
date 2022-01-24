@@ -1,7 +1,22 @@
+# Copyright © 2022 Nokia. All rights reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#       http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ include "netconf-server.fullname" . }}
+  namespace: {{ include "netconf.namespace" . }}
   labels:
     {{- include "netconf-server.labels" . | nindent 4 }}
 spec:
@@ -28,6 +43,8 @@ spec:
         - env:
           - name: KAFKA_HOST_NAME
             value: {{ .Values.config.kafka_hostname | quote }}
+          - name: ENABLE_TLS
+            value: {{ .Values.config.tls.enabled | quote }}
           name: {{ .Chart.Name }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
@@ -41,6 +58,14 @@ spec:
             httpGet:
               path: /readiness
               port: {{ .Values.service.port }}
+          {{- if .Values.config.certService.enabled }}
+          volumeMounts:
+            - name: certstore
+              mountPath: {{ .Values.certsDir }}
+            - name: prep-certs
+              mountPath: /scripts/set-up-netopeer.sh
+              subPath: set-up-netopeer.sh
+          {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
@@ -53,4 +78,33 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+      {{- if .Values.config.certService.enabled }}
+      volumes:
+        - name: certstore
+          projected:
+            sources:
+              - secret:
+                  name: '{{.Values.clientCertificates.name}}-secret'
+                  items:
+                    - key: tls.key
+                      path: client.key
+                    - key: tls.crt
+                      path: client.crt
+                    - key: ca.crt
+                      path: ca.crt
+              - secret:
+                  name: '{{.Values.serverCertificates.name}}-secret'
+                  items:
+                    - key: tls.key
+                      path: server.key
+                    - key: tls.crt
+                      path: server.crt
+        - name: prep-certs
+          configMap:
+            name: {{ include "netconf-server.fullname" . }}-prep-certs
+            defaultMode: 0777
+      {{- end }}
+
+
+
 
