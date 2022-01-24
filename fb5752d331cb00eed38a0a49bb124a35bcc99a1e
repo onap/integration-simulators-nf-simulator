@@ -1,0 +1,9 @@
+Code-Review+1: Krzysztof Kuzmicki <krzysztof.kuzmicki@nokia.com>
+Code-Review+2: Bogumil Zebek <bogumil.zebek@nokia.com>
+Verified+1: Krzysztof Kuzmicki <krzysztof.kuzmicki@nokia.com>
+Verified+1: ONAP Jobbuilder <onap-jobbuilder@jenkins.onap.org>
+Submitted-by: Bogumil Zebek <bogumil.zebek@nokia.com>
+Submitted-at: Mon, 24 Jan 2022 13:48:57 +0000
+Reviewed-on: https://gerrit.onap.org/r/c/integration/simulators/nf-simulator/+/126724
+Project: integration/simulators/nf-simulator
+Branch: refs/heads/master
